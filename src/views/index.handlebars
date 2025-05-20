@@ -1,0 +1,25 @@
+<div class="greeting">
+    <div class="fluid-grid">
+
+        
+            {{#each products}}
+            
+
+           
+            <article class="product-card" title={{this.title}}>
+                    <h3 class="product-card__title">{{this.title}}</h3>
+                    <img src={{this.image}} alt={{this.title}} class="product-card__image" />
+                    <p class="product-card__description">USD{{this.price}}</p>
+                    <a href="/product/{{this._id}}">
+                      <button type="button" class="product-card__details">
+                        Ver Detalles
+                      </button>
+                   </a>
+              </article>
+            {{/each}}
+    
+
+
+
+    </div>
+  </div>  

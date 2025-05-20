@@ -1,0 +1,304 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="./index2.css">
+ 
+  
+  <style>
+    /*
+    * {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    */
+
+
+    :root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+body{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between !important;
+  align-items: flex-start;
+  align-content: center;
+  
+}
+.bg-body-tertiary .container{
+  width: 100vw !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between !important;
+  align-items: flex-start;
+
+}
+.bg-body-tertiary container{
+ 
+  margin:0px !important;
+}
+
+#barraDerecha{
+  display: flex;
+  flex-direction: row;
+  
+  align-items: center;
+}
+
+#root, header{
+  min-width: 100% !important;
+}
+
+.contenedorPrincipal{
+  height: 100vh !important;
+  width: 100vw !important;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between !important;
+}
+
+nav{
+  width: 100vw !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between !important;
+}
+
+nav .container{
+  margin: 0px;
+}
+
+.greeting{
+
+  font-weight: 600;
+
+}
+
+
+.fluid-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 50px;
+}
+
+.product-card {
+
+
+  
+  background-color: white;
+  border-radius: 5px;
+  padding: 1rem;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  
+}
+
+.product-card__image {
+  width: 100%;
+}
+
+.product-card__addtocart{
+
+  background-color: rgb(82, 145, 18);
+  color:rgba(255, 255, 255);
+  border-radius: 5px;
+}
+
+.product-card__details{
+
+  background-color: rgb(133, 66, 160);
+  color:rgba(255, 255, 255);
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+
+
+h3, p{
+  font-size: 20px !important;
+  color: #1a1a1a !important;
+  text-decoration: none !important;
+  text-decoration-style: none !important;
+}
+
+.fluid-grid a{
+  
+  color: #1a1a1a !important;
+  text-decoration: none !important;
+  text-decoration-style: none !important;
+}
+
+.carritoli button{
+
+  background-color: rgb(142, 172, 236);
+  border:2px solid #ffffff;
+}
+
+button.comprar{
+
+  background-color: rgb(59, 176, 77);
+  border:2px solid #ffffff;
+}
+
+nav a{
+  color:#212121;
+  text-decoration: none;
+}
+
+nav{
+  background-color:#dfcde3 !important;
+  text-decoration: none;
+}
+
+.bg-success-subtle{
+  background-color:#f0e8f2 !important;
+  text-decoration: none;
+}
+
+.text-success{
+  color:#724c7c !important;
+}
+
+.btn-success{
+
+background-color:#a961bb !important;
+color:#f0e8f2;
+border: none;
+
+}
+
+.product-card__details a{
+
+  
+  color:rgba(255, 255, 255) !important;
+  
+}
+
+.brand{
+
+  border: none;
+
+}
+  </style>
+</head>
+
+<!--<body class="d-flex flex-column" style="min-height: 100vh;"> -->
+  <body>
+  <nav class="navbar navbar-expand-md shadow-sm">
+  <div class="container-fluid">
+    <!-- Marca -->
+    <a class="btn btn-transparent py-1 px-2 m-1 brand" href="/"><b>Amatista Boutique Natural</b></a>
+
+    <!-- Botón colapsable en móviles -->
+    <button class="navbar-toggler btn btn-light m-1" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Ítems del navbar -->
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+      <div class="navbar-nav" id="opts">
+        <a class="nav-link" href="/">Productos</a>
+      </div>
+
+      <!-- Iconos a la derecha -->
+      <div class="d-flex align-items-center gap-3 me-3">
+        <!-- Carrito -->
+        <a href="/" class="text-dark position-relative">
+          <i class="bi bi-cart fs-5"></i>
+        </a>
+
+        <!-- Usuario -->
+        <div class="d-flex align-items-center">
+          <i class="bi bi-person-circle fs-5 me-1"></i>
+          <span class="fw-semibold">Acá iría el usuario logueado</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+  {{{body}}}
+  <script src="/scripts/navbar.js"></script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+  </script>
+
+</html>
