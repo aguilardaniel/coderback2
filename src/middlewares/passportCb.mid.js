@@ -18,3 +18,4 @@ const passportCb = (strategy) => (req, res, next) => {
 };
 
 export default passportCb;
+
