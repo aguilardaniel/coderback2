@@ -48,7 +48,7 @@ class AuthController {
     if (!user) {
       res.json404();
     }
-    await resetPasswordEmail({ email });
+    await resetPasswordEmail(email);
     res.json200( "Email enviado" );
   };
   resetCb = async (req, res) => {
