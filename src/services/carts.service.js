@@ -1,6 +1,6 @@
 import cartsRepository from "../repositories/carts.repository.js";
 
-class ProductsService {
+class CartsService {
   constructor() {
     this.repository = cartsRepository;
   }
@@ -11,5 +11,5 @@ class ProductsService {
   destroyById = async (id) => await this.repository.destroyById(id);
 }
 
-const productsService = new ProductsService();
-export default productsService;
+const cartsService = new CartsService();
+export default cartsService;

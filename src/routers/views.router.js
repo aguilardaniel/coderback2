@@ -1,10 +1,20 @@
 import RouterHelper from "../helpers/router.helper.js";
 //import { productsManager } from "../dao/factory.js";
 import productsRepository from "../repositories/products.repository.js";
+import authController from "../controllers/auth.controller.js";
+
+
+
+
 
 const homeViewCb = async (req, res) => {
   const products = await productsRepository.readAll();
-  res.status(200).render("index", { products });
+  //console.log(document.cookie);
+  let usuarioActivo="Visitante";
+  if(req.signedCookies.token){
+    usuarioActivo = authController.usuarioActivo;
+  }
+  res.status(200).render("index", { products,  usuarioActivo });
 };
 const productViewCb = async (req, res) => {
   const { pid } = req.params;
@@ -27,6 +37,10 @@ const verifyViewCb = async (req, res) => {
   const { email } = req.params
   res.status(200).render("verify", { email });
 };
+const resetViewCb = async (req, res) => {
+  const { email } = req.params;
+  res.status(200).render("reset", { email });
+};
 
 class ViewsRouter extends RouterHelper {
   constructor() {
@@ -39,7 +53,8 @@ class ViewsRouter extends RouterHelper {
     this.render("/register", ["PUBLIC"], registerViewCb);
     this.render("/login", ["PUBLIC"], loginViewCb);
     this.render("/profile", ["USER", "ADMIN"], profileViewCb);
-    this.render("/verify/:email", ["PUBLIC"], verifyViewCb)
+    this.render("/verify/:email", ["PUBLIC"], verifyViewCb);
+    this.render("/reset/:email", ["PUBLIC"], resetViewCb);
   };
 }
 

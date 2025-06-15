@@ -39,6 +39,16 @@ class AuthRouter extends RouterHelper {
       "/verify/:email/:verifyCode",
       ["PUBLIC"],
       authController.verifyCb
+    );
+    this.read(
+      "/irhastareset/:email",
+      ["PUBLIC"],
+      authController.irHastaResetCb
+    );
+    this.read(
+      "/reset/:email/:newPass",
+      ["PUBLIC"],
+      authController.resetCb
     )
   };
 }

@@ -9,6 +9,7 @@ import usersRepository from "../repositories/users.repository.js";
 import { createToken } from "../helpers/token.util.js";
 import verifyUserEmail from "../helpers/verifyUser.helper.js";
 
+
 const callbackURL = "http://localhost:8080/api/auth/google/redirect";
 
 passport.use(
