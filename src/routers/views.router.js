@@ -54,7 +54,7 @@ class ViewsRouter extends RouterHelper {
     this.render("/login", ["PUBLIC"], loginViewCb);
     this.render("/profile", ["USER", "ADMIN"], profileViewCb);
     this.render("/verify/:email", ["PUBLIC"], verifyViewCb);
-    this.render("/reset/:email", ["PUBLIC"], resetViewCb);
+    this.render("/reset/:resetToken", ["PUBLIC"], resetViewCb);
   };
 }
 
