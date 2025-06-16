@@ -17,4 +17,4 @@ class CartsDTO {
   }
 }
 
-export default ProductsDTO
+export default CartsDTO
