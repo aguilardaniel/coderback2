@@ -10,7 +10,9 @@ const reset= async () => {
 
       const url = `/api/auth/reset/${resetToken}/${newPass}`;
       let response = await fetch(url);
+      console.log(response);
       response = await response.json();
+      console.log(response);
       console.log(response);
       if (response.error) {
         alert(response.error);

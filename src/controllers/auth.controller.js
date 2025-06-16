@@ -73,7 +73,7 @@ class AuthController {
     res.json200( "Password changed" );
 
     } catch (err) {
-      res.status(401).send("Token inválido o expirado");
+      res.json401("Token inválido o expirado");
     }
 
     
