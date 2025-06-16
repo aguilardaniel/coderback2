@@ -9,8 +9,8 @@ class ProductsRouter extends RouterHelper {
   }
   init = () => {
     this.create("/", ["ADMIN"], productsController.createOne);
-    this.read("/", ["PUBLIC"], productsController.readAll);
-    this.read("/:id", ["PUBLIC"], productsController.readById);
+    this.read("/", ["PUBLIC", "ADMIN", "USER"], productsController.readAll);
+    this.read("/:id", ["PUBLIC", "ADMIN", "USER"], productsController.readById);
     this.update("/:id", ["ADMIN"], productsController.updateById);
     this.destroy("/:id", ["ADMIN"], productsController.destroyById);
   };

@@ -49,13 +49,16 @@ class AuthController {
       res.json404();
     }
     await resetPasswordEmail(email);
-    res.json200( "Email enviado" );
+    res.json200( "Email sended" );
   };
   resetCb = async (req, res) => {
     const { email, newPass } = req.params;
     const user = await this.service.readBy({ email});
     if (!user) {
       res.json404();
+    }
+    if(newPass == user.password ){
+      return res.json401("Password already used");
     }
     await this.service.updateById(user._id, { password: createHash(newPass) });
     res.json200( "Password changed" );
