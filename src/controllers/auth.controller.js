@@ -55,14 +55,21 @@ class AuthController {
   };
   resetCb = async (req, res) => {
     const { resetToken, newPass } = req.params;
+    let user;
 
     try {
     const payload = jwt.verify(resetToken, process.env.SECRET);
     const email= payload.email;
-    const user = await this.service.readBy({ email});
+    user = await this.service.readBy({ email});
     
-    if (!user) {
-      res.json404();
+   
+
+    } catch (err) {
+      res.json401("Token inválido o expirado");
+    }
+
+     if (!user) {
+      res.json404("Invalid User");
     }
     /* const hashedNewPassword = createHash(newPass); */
     //if(hashedNewPassword == user.password ){
@@ -71,12 +78,6 @@ class AuthController {
     }
     await this.service.updateById(user._id, { hashedNewPassword });
     res.json200( "Password changed" );
-
-    } catch (err) {
-      res.json401("Token inválido o expirado");
-    }
-
-    
   };
 }
 
