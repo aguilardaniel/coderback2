@@ -1,7 +1,8 @@
 import usersService from "../services/users.service.js";
 import { verifyToken } from "../helpers/token.util.js";
-import { createHash } from "../helpers/hash.util.js";
+import { compareHash, createHash } from "../helpers/hash.util.js";
 import resetPasswordEmail from "../helpers/resetPassword.helper.js";
+import jwt from "jsonwebtoken";
 
 class AuthController {
   constructor() {
@@ -48,20 +49,34 @@ class AuthController {
     if (!user) {
       res.json404();
     }
-    await resetPasswordEmail(email);
+    const resetToken = jwt.sign({email}, process.env.SECRET, { expiresIn: "2m" });
+    await resetPasswordEmail(resetToken);
     res.json200( "Email sended" );
   };
   resetCb = async (req, res) => {
-    const { email, newPass } = req.params;
+    const { resetToken, newPass } = req.params;
+
+    try {
+    const payload = jwt.verify(resetToken, process.env.SECRET);
+    const email= payload.email;
     const user = await this.service.readBy({ email});
+    
     if (!user) {
       res.json404();
     }
-    if(newPass == user.password ){
+    /* const hashedNewPassword = createHash(newPass); */
+    //if(hashedNewPassword == user.password ){
+    if(compareHash(newPass, user.password)){
       return res.json401("Password already used");
     }
-    await this.service.updateById(user._id, { password: createHash(newPass) });
+    await this.service.updateById(user._id, { hashedNewPassword });
     res.json200( "Password changed" );
+
+    } catch (err) {
+      res.status(401).send("Token inválido o expirado");
+    }
+
+    
   };
 }
 

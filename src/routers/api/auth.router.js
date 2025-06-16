@@ -46,7 +46,7 @@ class AuthRouter extends RouterHelper {
       authController.irHastaResetCb
     );
     this.read(
-      "/reset/:email/:newPass",
+      "/reset/:resetToken/:newPass",
       ["PUBLIC"],
       authController.resetCb
     )
