@@ -38,8 +38,8 @@ const verifyViewCb = async (req, res) => {
   res.status(200).render("verify", { email });
 };
 const resetViewCb = async (req, res) => {
-  const { email } = req.params;
-  res.status(200).render("reset", { email });
+  const { resetToken } = req.params;
+  res.status(200).render("reset", { resetToken });
 };
 
 class ViewsRouter extends RouterHelper {

@@ -49,7 +49,7 @@ class AuthController {
     if (!user) {
       res.json404();
     }
-    const resetToken = jwt.sign({email}, process.env.SECRET, { expiresIn: "2m" });
+    const resetToken = jwt.sign({email}, process.env.SECRET, { expiresIn: "1h" });
     await resetPasswordEmail(resetToken);
     res.json200( "Email sended" );
   };
