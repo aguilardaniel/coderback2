@@ -71,7 +71,7 @@ class AuthController {
      if (!user) {
       res.json404("Invalid User");
     }
-    /* const hashedNewPassword = createHash(newPass); */
+     const hashedNewPassword = createHash(newPass);
     //if(hashedNewPassword == user.password ){
     if(compareHash(newPass, user.password)){
       return res.json401("Password already used");
