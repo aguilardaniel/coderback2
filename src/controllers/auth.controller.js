@@ -76,7 +76,7 @@ class AuthController {
     if(compareHash(newPass, user.password)){
       return res.json401("Password already used");
     }
-    await this.service.updateById(user._id, { hashedNewPassword });
+    await this.service.updateById(user._id, { password: hashedNewPassword });
     res.json200( "Password changed" );
   };
 }
